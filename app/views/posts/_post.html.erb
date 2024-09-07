@@ -1,0 +1,24 @@
+<div id="<%= dom_id(post) %>">
+  <div class="card text-center" style="width: 550px; margin: auto;">
+    <div class="card-header">
+      <%= post.username %>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"><%= post.title %></h5>
+      <hr>
+      <p class="card-text"><%= post.topic %></p>
+      <hr>
+      <p>
+        <%= link_to post.topic, post, class: 'card-text' %>
+      </p>
+      <hr>
+      <p class="card-text"><%= post.body %></p>
+      <hr>
+      <%= link_to 'Edit the Post', edit_post_path(post), class: 'btn btn-primary' %>
+      <%= link_to 'Delete this Post', post_path(post.id), :method => :delete, class: 'btn btn-danger' %>
+    </div>
+    <div class="card-footer text-muted">
+      Created at <%= post.created_at.strftime('%Y-%m-%d') %>
+    </div>
+  </div>
+</div>
